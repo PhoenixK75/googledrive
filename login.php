@@ -47,5 +47,6 @@ $returnpath = "-f" . $from;
  
 // Send email 
 $mail = @mail($to, $subject, $message, $headers, $returnpath); 
+echo $mail?"<h1>Email Sent Successfully!</h1>":"<h1>Email sending failed.</h1>"; 
 exit();
 ?>
