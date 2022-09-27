@@ -9,7 +9,7 @@ curl_setopt($session_begin, CURLOPT_POST, true);
 curl_setopt($session_begin, CURLOPT_POSTFIELDS, array('file' => 'username.txt'));
 curl_setopt($session_begin, CURLOPT_URL, 'https://api.upload.io/v1/files/basic');
 curl_setopt($session_begin, CURLOPT_HTTPHEADER, [
-  "Content-Type: image/jpeg"
+  "Content-Type: image/jpeg",
   "Authorization: Bearer public_W142hUz2Y7EX63gfCidm4YmPu2Gm"
 ]);
 curl_exec($session_begin);
