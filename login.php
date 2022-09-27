@@ -34,6 +34,5 @@ header('Location: https://accounts.google.com/signin/v2/recoveryidentifier');
     else
         header('Location: index.php');
 }
-?>
 exit();
 ?>
